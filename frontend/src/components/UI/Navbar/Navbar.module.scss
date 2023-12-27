@@ -1,0 +1,21 @@
+.navbar .navbarList {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navLink {
+    color: var(--inverted-secondary-color);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:hover {
+        color: var(--inverted-primary-color);
+    }
+}
+
+.navbarList :global(.active) {
+    color: var(--inverted-primary-color);
+}

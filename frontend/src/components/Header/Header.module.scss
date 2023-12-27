@@ -5,6 +5,33 @@
 
     color: var(--inverted-secondary-color);
     background: var(--inverted-bg-color);
-    height: 85px;
-    padding: 0 20px;
+    height: 98px;
+    padding: 0 96px;
+}
+
+.headerLogo {
+    color: var(--inverted-primary-color);
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 25px; /* 100% */
+    letter-spacing: 3.75px;
+}
+
+.contactsIcon {
+    padding: 10px;
+    background-color: var(--inverted-primary-color);
+    border-radius: 50%;
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        stroke: var(--inverted-secondary-color);
+    }
 }

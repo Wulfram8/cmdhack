@@ -1,9 +1,9 @@
 import styles from './Header.module.scss'
 import {FC} from "react";
-import Navbar from "../UI/Navbar/Navbar.tsx";
 import {classNames} from "../../lib/classNames.ts";
 import {Button} from "../UI/button/Button.tsx";
-import Logo from '../../assets/logo.png'
+import Input from "../UI/input/Input.tsx";
+import CallingIcon from '../../assets/icons/calling-icon.svg'
 
 interface iHeaderProps {
     className?: string
@@ -15,10 +15,20 @@ export const Header: FC<iHeaderProps> = (props) => {
     return (
         <header className={classNames(styles.Header, {}, [className!])}>
             <div className={styles.headerLogo}>
-                <img src={Logo} alt=""/>
+                Logos
             </div>
-            <Navbar />
-            <Button>Order now</Button>
+            <Input className={'input'} placeholder={'Введите адрес доставки'} />
+            <div className={styles.contacts}>
+                <img className={styles.contactsIcon} src={CallingIcon} alt=""/>
+                <div className={styles.contactsInfo}>
+                    <h4 className={styles.title}>Контакты</h4>
+                    <span id={styles.phoneNumber}>+7 (917) 510-57-79</span>
+                </div>
+            </div>
+            <div style={{display: 'flex', gap: 10}}>
+                <Button>Cart</Button>
+                <Button>Login</Button>
+            </div>
         </header>
     );
 };

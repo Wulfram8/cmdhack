@@ -1,0 +1,10 @@
+.RestList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 260px 260px 260px 260px;
+    grid-template-rows: 340px 340px 340px;
+}
+
+.RestList:hover {
+    transform: scale(1.02);
+}

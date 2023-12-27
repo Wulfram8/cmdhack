@@ -1,0 +1,39 @@
+.inputContainer {
+    position: relative;
+    .input {
+        padding: 15px 0 15px 36px;
+        border-radius: 10px;
+        background: #504B4A;
+        border: none;
+        width: 555px;
+
+        color: #CFCFCF;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+
+    img:first-child {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+
+        transform: translate(-50%, -50%);
+    }
+
+    img:last-child {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        transform: translate(-50%, -50%);
+    }
+}
+

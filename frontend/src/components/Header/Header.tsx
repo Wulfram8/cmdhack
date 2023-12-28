@@ -1,9 +1,9 @@
 import styles from './Header.module.scss'
 import {FC} from "react";
-import {classNames} from "../../lib/classNames.ts";
 import {Button} from "../UI/button/Button.tsx";
 import Input from "../UI/input/Input.tsx";
 import CallingIcon from '../../assets/icons/calling-icon.svg'
+import customClasses from "../../lib/customClasses/customClasses.ts";
 
 interface iHeaderProps {
     className?: string
@@ -13,7 +13,7 @@ export const Header: FC<iHeaderProps> = (props) => {
     const {className} = props
 
     return (
-        <header className={classNames(styles.Header, {}, [className!])}>
+        <header className={customClasses(styles.Header, {}, [className!])}>
             <div className={styles.headerLogo}>
                 Logos
             </div>

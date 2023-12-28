@@ -46,4 +46,5 @@ export type Restaurant = {
   ordersCount: number;
   meals: Meal[];
   location: string;
+  address: string;
 };

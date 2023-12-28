@@ -1,7 +1,7 @@
 import {FC} from "react";
 import styles from './RestaurantCard.module.scss'
 import customClasses from "../../../lib/customClasses/customClasses.ts";
-import { Restaurant } from "../../../../../dto.ts";
+import { Restaurant } from "@root/dto.ts";
 
 interface iRestaurantCardProps {
     className?: string,

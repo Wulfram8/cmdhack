@@ -64,7 +64,6 @@ export const mockRestaurants: Restaurant[] = [
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
     location: "Улица Пасты 123, Город Италии",
-    address: "Улица Пасты 123, Город Италии, IT 12345",
   },
   {
     id: 2,
@@ -75,7 +74,6 @@ export const mockRestaurants: Restaurant[] = [
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
     location: "Улица Пасты 123, Город Италии",
-    address: "Улица Пасты 123, Город Италии, IT 12345",
   },
   {
     id: 3,
@@ -86,7 +84,6 @@ export const mockRestaurants: Restaurant[] = [
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
     location: "Улица Пасты 123, Город Италии",
-    address: "Улица Пасты 123, Город Италии, IT 12345",
   },
   // ... Другие рестораны
 ];

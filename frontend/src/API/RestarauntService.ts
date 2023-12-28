@@ -1,7 +1,7 @@
-import ky from 'ky';
-import { mockIngredients, mockRestaurants } from './mocks';
+// import ky from 'ky';
+import { mockRestaurants } from './mocks';
 
-const API_URL = 'https://1386ca2b65b23e75.mokky.dev/restaurants';
+// const API_URL = 'https://1386ca2b65b23e75.mokky.dev/restaurants';
 
 const response = <ResData>(resData: ResData) => {
     return new Promise<ResData>(resolve => {

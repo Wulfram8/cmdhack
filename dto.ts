@@ -45,6 +45,5 @@ export type Restaurant = {
   image: string;
   ordersCount: number;
   meals: Meal[];
-  location: string;
   address: string;
 };

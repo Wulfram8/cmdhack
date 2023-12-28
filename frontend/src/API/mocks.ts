@@ -54,8 +54,6 @@ export const mockMeals: Meal[] = [
 
 // Mock data for Restaurant
 export const mockRestaurants: Restaurant[] = [
-  // ... Предположим, что у вас есть 12 разных ресторанов
-  // Например, первый ресторан
   {
     id: 1,
     name: 'Итальянская кухня',
@@ -64,7 +62,7 @@ export const mockRestaurants: Restaurant[] = [
     image: restaurantImg,
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
-    location: 'Улица Пасты 123, Город Италии',
+    address: 'Улица Пасты 123, Город Италии',
   },
   {
     id: 2,
@@ -74,7 +72,7 @@ export const mockRestaurants: Restaurant[] = [
     image: restaurantImg,
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
-    location: 'Улица Пасты 123, Город Италии',
+    address: 'Улица Пасты 123, Город Италии',
   },
   {
     id: 3,
@@ -84,9 +82,8 @@ export const mockRestaurants: Restaurant[] = [
     image: restaurantImg,
     ordersCount: 120,
     meals: mockMeals.slice(0, 3), // Некоторые блюда из меню
-    location: 'Улица Пасты 123, Город Италии',
+    address: 'Улица Пасты 123, Город Италии',
   },
-  // ... Другие рестораны
 ];
 
 // Mock data for Client

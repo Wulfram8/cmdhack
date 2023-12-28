@@ -1,6 +1,9 @@
 .RestListContainer {
-    text-align: center;
     margin-top: 30px;
+
+    h1 {
+        text-align: center;
+    }
 }
 
 .RestList {
@@ -10,5 +13,4 @@
     grid-template-rows: 385px 385px 385px;
 
     padding: 30px;
-    justify-content: center;
 }

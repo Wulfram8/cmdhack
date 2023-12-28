@@ -4,6 +4,7 @@ import { Button } from '../UI/TabMenu/button/Button.tsx';
 import Input from '../UI/input/Input.tsx';
 import CallingIcon from '../../assets/icons/calling-icon.svg';
 import customClasses from '../../lib/customClasses/customClasses.ts';
+import { Link } from 'react-router-dom';
 
 interface iHeaderProps {
   className?: string;
@@ -14,7 +15,7 @@ export const Header: FC<iHeaderProps> = (props) => {
 
   return (
     <header className={customClasses(styles.Header, {}, [className!])}>
-      <div className={styles.headerLogo}>Logos</div>
+      <Link to='' className={styles.headerLogo}>Logos</Link>
       <Input className={'input'} placeholder={'Введите адрес доставки'} />
       <div className={styles.contacts}>
         <img className={styles.contactsIcon} src={CallingIcon} alt='' />
@@ -23,9 +24,9 @@ export const Header: FC<iHeaderProps> = (props) => {
           <span id={styles.phoneNumber}>+7 (917) 510-57-79</span>
         </div>
       </div>
-      <div style={{ display: 'flex', gap: 10 }}>
-        <Button>Cart</Button>
-        <Button>Login</Button>
+      <div className={styles.headerBtnCont}>
+        <Link to='/cart'>Cart</Link>
+        <Link to='/login'>Login</Link>
       </div>
     </header>
   );

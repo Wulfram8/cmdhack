@@ -1,5 +1,5 @@
 import styles from './TabMenu.module.scss';
-import { classNames } from '../../../lib/classNames.ts';
+import customClasses from '@/lib/customClasses/customClasses';
 import { FC } from 'react';
 
 interface iTabMenuProps {
@@ -9,5 +9,5 @@ interface iTabMenuProps {
 export const TabMenu: FC<iTabMenuProps> = (props) => {
   const { className } = props;
 
-  return <div className={classNames(styles.TabMenu, {}, [className!])}></div>;
+  return <div className={customClasses(styles.TabMenu, {}, [className!])}></div>;
 };

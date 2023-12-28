@@ -1,0 +1,16 @@
+.cart {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  h1 {
+    text-align: center;
+  }
+}
+
+.itemCont {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  overflow: hidden;
+}

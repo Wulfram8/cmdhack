@@ -7,6 +7,9 @@
     background: var(--inverted-bg-color);
     height: 98px;
     padding: 0 96px;
+    a {
+        text-decoration: none;
+    }
 }
 
 .headerLogo {
@@ -30,8 +33,23 @@
     display: flex;
     align-items: center;
     gap: 10px;
-
     img {
         stroke: var(--inverted-secondary-color);
+    }
+}
+
+.headerBtnCont {
+    display: flex;
+    gap: 20px;
+    a {
+        text-decoration: none;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 10px 20px;
+        border-radius: 6px;
+        &:hover,
+        &:active {
+            background-color: var(--inverted-primary-color);
+        }
     }
 }

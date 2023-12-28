@@ -1,0 +1,56 @@
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  border: 1px solid var(--primary-color);
+  padding: 20px 42px 20px 19px;
+  .cartLeft {
+    display: flex;
+    align-items: center;
+    gap: 39px;
+  }
+  img {
+    width: 117px;
+    height: 86px;
+  }
+  button {
+    background-color: var(--primary-color);
+    width: 27px;
+    height: 27px;
+    outline: none;
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    cursor: pointer;
+    &:hover,
+    &:active {
+      background-color: var(--inverted-primary-color);
+    }
+  }
+  .cartText {
+    color: var(--secondary-color);
+    max-width: 265px;
+    h2 {
+    font-size: 18px;
+    color: var(--primary-inverted-color);
+  }
+  p {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+  }
+  }
+  .mealCount {
+  display: flex;
+  gap: 14px;
+}
+  span, .itemPrice {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+}

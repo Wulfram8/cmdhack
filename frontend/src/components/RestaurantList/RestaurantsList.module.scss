@@ -1,10 +1,14 @@
+.RestListContainer {
+    text-align: center;
+    margin-top: 30px;
+}
+
 .RestList {
     display: grid;
     gap: 20px;
-    grid-template-columns: 260px 260px 260px 260px;
-    grid-template-rows: 340px 340px 340px;
-}
+    grid-template-columns: 330px 330px 330px 330px;
+    grid-template-rows: 385px 385px 385px;
 
-.RestList:hover {
-    transform: scale(1.02);
+    padding: 30px;
+    justify-content: center;
 }

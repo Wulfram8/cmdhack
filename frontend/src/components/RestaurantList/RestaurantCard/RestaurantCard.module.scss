@@ -1,3 +1,14 @@
 .RestCard {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        box-shadow: 0 30px 45px 0 rgba(43, 40, 40, 0.60);
+    }
+
+    img {
+        overflow: hidden;
+    }
 }

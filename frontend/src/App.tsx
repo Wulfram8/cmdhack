@@ -1,16 +1,16 @@
-import AppRouter from "./router/AppRouter";
-import './styles/main.scss'
-import {useTheme} from "./styles/theme/useTheme.ts";
+import AppRouter from './router/AppRouter';
+import './styles/main.scss';
+import { useTheme } from './styles/theme/useTheme.ts';
 
 function App() {
-    const {theme, toggleTheme} = useTheme()
+  const { theme, toggleTheme } = useTheme();
 
   return (
-      <div className={`App ${theme}`}>
-          <button onClick={toggleTheme}>Change Theme</button>
-          <AppRouter/>
-      </div>
-  )
+    <div className={`App ${theme}`}>
+      <button onClick={toggleTheme}>Change Theme</button>
+      <AppRouter />
+    </div>
+  );
 }
 
-export default App
+export default App;

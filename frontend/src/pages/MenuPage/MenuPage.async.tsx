@@ -1,3 +1,3 @@
-import {lazy} from "react";
+import { lazy } from 'react';
 
-export const MenuPageAsync = lazy(() => import('./index.tsx'))
+export const MenuPageAsync = lazy(() => import('./index.tsx'));

@@ -10,6 +10,9 @@ export default defineConfig({
   plugins: [react(), tsConfigPaths()],
   resolve: {
     //@ts-expect-error
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }, {find: '@root', replacement: path.join(__dirname, '../../')}],
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+      { find: '@root', replacement: path.join(__dirname, '../../') },
+    ],
   },
 });

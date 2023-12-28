@@ -1,3 +1,3 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-export const CartPageAsync = lazy(() => import("./index.tsx"));
+export const CartPageAsync = lazy(() => import('./index.tsx'));

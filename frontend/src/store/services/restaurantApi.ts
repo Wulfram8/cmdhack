@@ -11,7 +11,7 @@ export const restaurantApi = api.injectEndpoints({
     }),
     getRestaurantById: build.query<Restaurant, number>({
       query: (id) => ({
-        url: `restaurant/${id}`,
+        url: `restaurants/${id}`,
       }),
       providesTags: ['Restaurant'],
     }),

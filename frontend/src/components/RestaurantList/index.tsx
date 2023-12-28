@@ -1,12 +1,12 @@
 import {FC} from "react";
 import {RestaurantCard} from "./RestaurantCard";
-import {restaurant} from "../../pages/HomePage";
 import styles from './RestaurantsList.module.scss'
 import customClasses from "../../lib/customClasses/customClasses.ts";
+import { Restaurant } from "../../../../dto.ts";
 
 interface iRestaurantsListProps {
     className?: string,
-    restaurans: restaurant[]
+    restaurans: Restaurant[]
 
 }
 
@@ -17,7 +17,7 @@ export const RestaurantsList: FC<iRestaurantsListProps> = (props) => {
         <div className={customClasses(styles.RestListContainer, {}, [className!])}>
             <h1>Рестораны</h1>
             <div className={customClasses(styles.RestList, {}, [className!])}>
-                {restaurans.map(restaurant => (<RestaurantCard key={restaurant.title} restaurant={restaurant}/>))}
+                {restaurans.map(restaurant => (<RestaurantCard key={restaurant.id} restaurant={restaurant}/>))}
             </div>
         </div>
     );

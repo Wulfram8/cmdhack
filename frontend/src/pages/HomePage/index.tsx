@@ -1,6 +1,7 @@
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import RestarauntService from "../../API/RestarauntService.ts";
 import {RestaurantsList} from "../../components/RestaurantList";
+import { Restaurant } from "../../../../dto.ts";
 
 export interface restaurant {
     imgUrl: string,
@@ -8,17 +9,12 @@ export interface restaurant {
     tags: string[]
 }
 
-interface state {
-    restar: restaurant,
-    setRestar: Dispatch<SetStateAction<restaurant[]>>
-}
 
 const HomePage = () => {
-    const [restar, setRestar] = useState<state[]>([])
-    console.log(restar)
+    const [restaurants, setRestaurants] = useState<Restaurant[]>([])
     const fetchData = async () => {
         const data = await RestarauntService.getAll()
-        setRestar(data)
+        setRestaurants(data)
     }
 
     useEffect(() => {
@@ -27,7 +23,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <RestaurantsList restaurans={restar}/>
+            <RestaurantsList restaurans={restaurants}/>
         </div>
     );
 };

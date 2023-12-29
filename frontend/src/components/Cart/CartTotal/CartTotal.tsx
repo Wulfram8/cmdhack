@@ -10,7 +10,6 @@ const CartTotal: FC<CartState> = (props) => {
     (acc: number, val: CartProduct) => acc + val.meal.price * val.quantity,
     0,
   );
-  console.log(cartTotal);
 
   return (
     <div className={style.totalCont}>

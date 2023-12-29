@@ -1,6 +1,6 @@
-import Filter from '@/components/Filter/Filter';
-import { RestaurantsList } from '../../components/RestaurantList';
 import { useGetRestaurantsQuery } from '@/store/services/restaurantApi.ts';
+import { RestaurantsList } from '@/components/RestaurantList';
+import Filter from '@/components/Filter/Filter';
 
 export interface restaurant {
   imgUrl: string;

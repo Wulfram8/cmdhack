@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Paper } from '@/components/UI/Paper/Paper';
 import s from './MakeOrderPage.module.scss';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -8,10 +9,18 @@ import cn from 'classnames';
 import { GroupButtons } from '@/components/UI/GroupButtons/GroupButtons';
 import { useForm } from '@/lib/hooks/useForm';
 import { SlPresent } from 'react-icons/sl';
+import { useTypedSelector } from '@/store';
+import { selectCartProducets, selectCartTotalPrice } from '@/store/cart/cartSlice';
+import { Button } from '@/components/UI/TabMenu/button/Button';
+import { selectClient } from '@/store/auth/authSlice';
+import { useEffect } from 'react';
+import { useCreateOrderMutation } from '@/store/services/orderApi';
 
 export const MakeOrderPage = () => {
   const navigate = useNavigate();
   const form = useForm({
+    name: '',
+    phone: '',
     delivery: {
       id: 1,
       label: 'Доставка',
@@ -28,7 +37,54 @@ export const MakeOrderPage = () => {
       id: 1,
       label: 'Себе',
     },
+    cardNumber: '',
+    cartMonth: '',
+    cartYear: '',
+    cvv: '',
+    deliveryTime: '',
+    street: '',
+    homeNumber: '',
+    flatNumber: '',
+    pod: '',
+    floor: '',
   });
+  const cartProducts = useTypedSelector(selectCartProducets);
+  const cartTotalPrice = useTypedSelector(selectCartTotalPrice);
+  const client = useTypedSelector(selectClient);
+  const [createOrder, createOrderExtra] = useCreateOrderMutation();
+
+  useEffect(() => {
+    if (form.values.user.id === 1) {
+      form.setFieldValue('name', client?.user.first_name || '');
+      form.setFieldValue('phone', client?.phone || '');
+    } else {
+      form.setFieldValue('name', '');
+      form.setFieldValue('phone', '');
+    }
+  }, [client?.user, form.values.user]);
+
+  const submitHanlder = async () => {
+    try {
+      await createOrder({
+        client_id: client!.id,
+        address: `${form.values.street}, д. ${form.values.homeNumber}, ${form.values.flatNumber}, ${form.values.pod}. ${form.values.floor}`,
+        delivery_time: form.values.deliveryTime,
+        is_delivery: form.values.delivery.id === 1,
+        is_present: form.values.user.id !== 1,
+        payment_method: form.values.payment.label,
+        payment_status: form.values.payment.id === 1 ? 'Оплачено' : 'Ожидание',
+        products: cartProducts.map((p) => ({
+          meal_id: p.meal.id,
+          quantity: p.quantity,
+          notes: [],
+        })),
+        note: '',
+        to_whom_id: 2,
+      }).unwrap();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={s.root}>
@@ -64,12 +120,20 @@ export const MakeOrderPage = () => {
               value={form.values.user}
             />
           </div>
-          {form.values.user.id === 2 && (
-            <div className='grid sm:grid-cols-2 gap-4 mt-8'>
-              <InputField placeholder='Имя*' />
-              <InputField placeholder='Телефон*' />
-            </div>
-          )}
+          <div className='grid sm:grid-cols-2 gap-4 mt-8'>
+            <InputField
+              name='name'
+              placeholder='Имя*'
+              value={form.values.name}
+              onChange={form.handleChange}
+            />
+            <InputField
+              name='phone'
+              placeholder='Телефон*'
+              value={form.values.phone}
+              onChange={form.handleChange}
+            />
+          </div>
         </Paper>
         <Paper>
           <h2 className={s.formSectionTitle}>2. Доставка</h2>
@@ -91,12 +155,44 @@ export const MakeOrderPage = () => {
             <>
               <h3 className={cn(s.formSectionTitle2, 'mt-7')}>Адрес доставки</h3>
               <div className='grid grid-cols-3 gap-4 mt-5'>
-                <InputField placeholder='Укажите улицу*' className='col-span-2' />
-                <InputField placeholder='Номер дома*' />
-                <InputField placeholder='№ квартиры/офиса' />
-                <InputField placeholder='Подъезд' />
-                <InputField placeholder='Этаж' />
-                <InputField placeholder='Комментарий' className='col-span-3' />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.street}
+                  name='street'
+                  placeholder='Укажите улицу*'
+                  className='col-span-2'
+                />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.homeNumber}
+                  name='homeNumber'
+                  placeholder='Номер дома*'
+                />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.flatNumber}
+                  name='flatNumber'
+                  placeholder='№ квартиры/офиса'
+                />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.pod}
+                  name='pod'
+                  placeholder='Подъезд'
+                />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.flatNumber}
+                  name='flatNumber'
+                  placeholder='Этаж'
+                />
+                <InputField
+                  onChange={form.handleChange}
+                  value={form.values.street}
+                  name='street'
+                  placeholder='Комментарий'
+                  className='col-span-3'
+                />
               </div>
             </>
           )}
@@ -118,10 +214,45 @@ export const MakeOrderPage = () => {
               value={form.values.payment}
             />
           </div>
-          <h3 className={cn(s.formSectionTitle2, 'mt-7')}>Адрес доставки</h3>
-          <div className='grid grid-cols-3 gap-4 mt-5'>
-            <InputField placeholder='Сдача с' />
-          </div>
+          {form.values.payment.id === 3 && (
+            <div className='grid grid-cols-3 gap-4 mt-5'>
+              <InputField placeholder='Сдача с' />
+            </div>
+          )}
+          {form.values.payment.id === 1 && (
+            <div className='grid grid-cols-6 mt-5'>
+              <div className='col-span-4 grid grid-cols-4 gap-4'>
+                <InputField
+                  name='cardNumber'
+                  className='col-span-4'
+                  placeholder='2200 0000 0000 0000'
+                  onChange={form.handleChange}
+                  value={form.values.cardNumber}
+                />
+                <InputField
+                  name='cartMonth'
+                  className='col-span-1'
+                  placeholder='29'
+                  onChange={form.handleChange}
+                  value={form.values.cartMonth}
+                />
+                <InputField
+                  name='cartYear'
+                  className='col-span-1'
+                  placeholder='2026'
+                  onChange={form.handleChange}
+                  value={form.values.cartYear}
+                />
+                <InputField
+                  name='cvv'
+                  className='col-span-2'
+                  placeholder='CVV'
+                  onChange={form.handleChange}
+                  value={form.values.cvv}
+                />
+              </div>
+            </div>
+          )}
         </Paper>
         <Paper>
           <h2 className={s.formSectionTitle}>4. Когда доставить</h2>
@@ -138,9 +269,43 @@ export const MakeOrderPage = () => {
               selectKey={(option) => option.id}
               value={form.values.time}
             />
-            {form.values.time.id === 2 && <InputField placeholder='Укажите время' />}
+            {form.values.time.id === 2 && (
+              <InputField
+                name='deliveryTime'
+                placeholder='Укажите время'
+                value={form.values.deliveryTime}
+                onChange={form.handleChange}
+              />
+            )}
           </div>
         </Paper>
+        <Paper>
+          <h2 className={s.formSectionTitle}>5. Итого</h2>
+          <div className='mt-8 grid gap-3'>
+            {cartProducts.map((product) => {
+              return (
+                <div key={product.meal.id} className={s.cartProduct}>
+                  <img src={product.meal.image} className={s.cartImage} />
+                  <div className={s.cartRight}>
+                    <div>
+                      <p className={s.cartName}>{product.meal.name}</p>
+                      <p className={s.cartDescription}>{product.meal.description}</p>
+                      <p className={cn(s.cartName, 'text-base')}>Цена: {product.meal.price} ₽</p>
+                      <p className={s.cartDescription}>Количество {product.quantity}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            <p className={s.cartName}>
+              Итоговая сумма: {Intl.NumberFormat().format(cartTotalPrice)} ₽
+            </p>
+          </div>
+        </Paper>
+        <Button onClick={submitHanlder} disabled={createOrderExtra.isLoading}>
+          Оформить заказ
+        </Button>
       </div>
     </div>
   );

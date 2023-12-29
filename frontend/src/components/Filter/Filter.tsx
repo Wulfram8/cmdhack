@@ -1,6 +1,5 @@
 import { useGetCategoriesQuery } from '@/store/services/categoriesApi';
 import style from './Filter.module.scss';
-import { useState } from 'react';
 import { useAppDispatch, useTypedSelector } from '@/store';
 import { changeFilterValue } from '@/store/filter/filterSlice';
 

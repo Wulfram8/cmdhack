@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { RestaurantCard } from './RestaurantCard';
 import styles from './RestaurantsList.module.scss';
 import customClasses from '../../lib/customClasses/customClasses.ts';
-import { Restaurant } from '../../../../dto.ts';
 import { useGetFilteredRestaurantsQuery } from '@/store/services/restaurantApi.ts';
 import { useTypedSelector } from '@/store/index.ts';
 import { changeFilterValue } from '@/store/filter/filterSlice.ts';
+import { Restaurant } from '@root/dto.ts';
 
 interface iRestaurantsListProps {
   className?: string;

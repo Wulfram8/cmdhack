@@ -101,7 +101,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         note = serializers.CharField()
         payment_method = serializers.CharField()
         payment_status = serializers.CharField()
-        delivery_time = serializers.DateTimeField()
+        delivery_time = serializers.CharField()
         products = ProductsSerializer(many=True)
 
     @swagger_auto_schema(responses={200: OrderSerializer}, request_body=OrderRequestSerializer)

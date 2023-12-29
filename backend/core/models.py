@@ -148,7 +148,8 @@ class Order(models.Model):
     ),  default=PaymentMethod.ONLINE.value, verbose_name='payment_method')
     payment_status = models.CharField(max_length=128, choices=PaymentStatus.choices(
     ),  default=PaymentStatus.PENDING.value, verbose_name='payment_method')
-    delivery_time = models.DateTimeField(null=True, verbose_name='created_at')
+    delivery_time = models.CharField(
+        max_length=512, null=True, verbose_name='delivery_time')
 
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name='created_at')

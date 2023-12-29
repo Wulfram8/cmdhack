@@ -32,7 +32,7 @@ export const Header: FC<iHeaderProps> = (props) => {
       </div>
       <div className={styles.headerBtnCont}>
         <Link to='/cart'>
-          Cart | <span>4</span>
+          Корзина | <span>4</span>
         </Link>
         {!isAuthenticated ? (
           <Link to='/auth/login'>Войти</Link>

@@ -10,6 +10,4 @@ function customClasses(cls: string, mods: Mods = {}, additional: string[] = []):
   ].join(' ');
 }
 
-const typesCls = null;
-console.log(typesCls);
 export default customClasses;

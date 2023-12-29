@@ -87,15 +87,19 @@ export const MakeOrderPage = () => {
               value={form.values.delivery}
             />
           </div>
-          <h3 className={cn(s.formSectionTitle2, 'mt-7')}>Адрес доставки</h3>
-          <div className='grid grid-cols-3 gap-4 mt-5'>
-            <InputField placeholder='Укажите улицу*' className='col-span-2' />
-            <InputField placeholder='Номер дома*' />
-            <InputField placeholder='№ квартиры/офиса' />
-            <InputField placeholder='Подъезд' />
-            <InputField placeholder='Этаж' />
-            <InputField placeholder='Комментарий' className='col-span-3' />
-          </div>
+          {form.values.delivery.id === 1 && (
+            <>
+              <h3 className={cn(s.formSectionTitle2, 'mt-7')}>Адрес доставки</h3>
+              <div className='grid grid-cols-3 gap-4 mt-5'>
+                <InputField placeholder='Укажите улицу*' className='col-span-2' />
+                <InputField placeholder='Номер дома*' />
+                <InputField placeholder='№ квартиры/офиса' />
+                <InputField placeholder='Подъезд' />
+                <InputField placeholder='Этаж' />
+                <InputField placeholder='Комментарий' className='col-span-3' />
+              </div>
+            </>
+          )}
         </Paper>
         <Paper>
           <h2 className={s.formSectionTitle}>3. Оплатить</h2>

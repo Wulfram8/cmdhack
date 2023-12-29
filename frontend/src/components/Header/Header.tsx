@@ -4,6 +4,9 @@ import Input from '../UI/input/Input.tsx';
 import CallingIcon from '../../assets/icons/calling-icon.svg';
 import customClasses from '../../lib/customClasses/customClasses.ts';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useTypedSelector } from '@/store/index.ts';
+import { logout, selectIsAuthenticated } from '@/store/auth/authSlice.ts';
+import { Button } from '../UI/TabMenu/button/Button.tsx';
 
 interface iHeaderProps {
   className?: string;
@@ -11,6 +14,8 @@ interface iHeaderProps {
 
 export const Header: FC<iHeaderProps> = (props) => {
   const { className } = props;
+  const dispatch = useAppDispatch();
+  const isAuthenticated = useTypedSelector(selectIsAuthenticated);
 
   return (
     <header className={customClasses(styles.Header, {}, [className!])}>
@@ -29,7 +34,11 @@ export const Header: FC<iHeaderProps> = (props) => {
         <Link to='/cart'>
           Cart | <span>4</span>
         </Link>
-        <Link to='/login'>Login</Link>
+        {!isAuthenticated ? (
+          <Link to='/auth/login'>Войти</Link>
+        ) : (
+          <Button onClick={() => dispatch(logout())}>Выйти</Button>
+        )}
       </div>
     </header>
   );

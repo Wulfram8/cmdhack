@@ -8,7 +8,7 @@ import {
 } from 'react';
 
 export type UseFormReturn<FormState extends object> = {
-  handleChange: ChangeEventHandler<HTMLInputElement>;
+  handleChange: ChangeEventHandler<HTMLInputElement & HTMLFormElement>;
   setValues: Dispatch<SetStateAction<FormState>>;
   setFieldValue: <Name extends keyof FormState>(name: Name, value: FormState[Name]) => void;
   values: FormState;

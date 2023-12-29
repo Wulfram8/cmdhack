@@ -42,7 +42,7 @@
     display: flex;
     gap: 20px;
 
-    a {
+    a, button {
         text-decoration: none;
         background-color: var(--inverted-primary-color);
         color: var(--secondary-color);

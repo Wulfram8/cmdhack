@@ -21,7 +21,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.ORDER]: '/orders',
   [AppRoutes.CART]: '/cart',
   [AppRoutes.RESTAURANT]: '/restaurant/:id',
-  [AppRoutes.MAKE_ORDER]: 'make-order',
+  [AppRoutes.MAKE_ORDER]: '/make-order',
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {

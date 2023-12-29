@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { api } from './services/api';
 import { authSlice } from './auth/authSlice';
 import { cartSlice } from './cart/cartSlice';
+import { filterSlice } from './filter/filterSlice';
 
 export const createStore = (options?: ConfigureStoreOptions['preloadedState'] | undefined) =>
   configureStore({
@@ -10,6 +11,7 @@ export const createStore = (options?: ConfigureStoreOptions['preloadedState'] | 
       [api.reducerPath]: api.reducer,
       [authSlice.reducerPath]: authSlice.reducer,
       [cartSlice.reducerPath]: cartSlice.reducer,
+      [filterSlice.reducerPath]: filterSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
     ...options,

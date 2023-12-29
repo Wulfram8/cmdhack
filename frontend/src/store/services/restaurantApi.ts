@@ -9,6 +9,12 @@ export const restaurantApi = api.injectEndpoints({
       }),
       providesTags: ['Restaurant'],
     }),
+    getFilteredRestaurants: build.query<Restaurant[], number>({
+      query: (id) => ({
+        url: `/restaurants/?categories=${id}`,
+      }),
+      providesTags: ['Restaurant'],
+    }),
     getRestaurantById: build.query<Restaurant, number>({
       query: (id) => ({
         url: `restaurants/${id}`,
@@ -18,4 +24,5 @@ export const restaurantApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetRestaurantsQuery, useGetRestaurantByIdQuery } = restaurantApi;
+export const { useGetRestaurantsQuery, useGetRestaurantByIdQuery, useGetFilteredRestaurantsQuery } =
+  restaurantApi;

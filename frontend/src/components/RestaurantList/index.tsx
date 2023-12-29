@@ -3,6 +3,9 @@ import { RestaurantCard } from './RestaurantCard';
 import styles from './RestaurantsList.module.scss';
 import customClasses from '../../lib/customClasses/customClasses.ts';
 import { Restaurant } from '../../../../dto.ts';
+import { useGetFilteredRestaurantsQuery } from '@/store/services/restaurantApi.ts';
+import { useTypedSelector } from '@/store/index.ts';
+import { changeFilterValue } from '@/store/filter/filterSlice.ts';
 
 interface iRestaurantsListProps {
   className?: string;
@@ -10,8 +13,10 @@ interface iRestaurantsListProps {
 }
 
 export const RestaurantsList: FC<iRestaurantsListProps> = (props) => {
+  let getfilterId = useTypedSelector(changeFilterValue);
+  let filterId = getfilterId.payload.filter.value;
   const { className, restaurans } = props;
-  console.log(restaurans);
+  const getFilteredList = useGetFilteredRestaurantsQuery(filterId);
   return (
     <div className={customClasses(styles.RestListContainer, {}, [className!])}>
       <div className={styles.titleWrapper}>

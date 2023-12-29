@@ -1,3 +1,4 @@
+import Filter from '@/components/Filter/Filter';
 import { RestaurantsList } from '../../components/RestaurantList';
 import { useGetRestaurantsQuery } from '@/store/services/restaurantApi.ts';
 
@@ -16,6 +17,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <Filter />
       <RestaurantsList restaurans={restaurantsQuery.data || []} />
     </div>
   );

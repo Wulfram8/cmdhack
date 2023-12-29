@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import RestarauntService from '../../API/RestarauntService.ts';
 import { RestaurantsList } from '../../components/RestaurantList';
 import { Restaurant } from '../../../../dto.ts';
+import { useGetRestaurantsQuery } from '@/store/services/restaurantApi.ts';
 
 export interface restaurant {
   imgUrl: string;
@@ -10,19 +11,15 @@ export interface restaurant {
 }
 
 const HomePage = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
-  const fetchData = async () => {
-    const data = await RestarauntService.getAll();
-    setRestaurants(data);
-  };
+  const restaurantsQuery = useGetRestaurantsQuery();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  if (restaurantsQuery.isLoading) {
+    return <h1>Загружаем данные</h1>;
+  }
 
   return (
     <div>
-      <RestaurantsList restaurans={restaurants} />
+      <RestaurantsList restaurans={restaurantsQuery.data || []} />
     </div>
   );
 };

@@ -5,7 +5,7 @@ export const restaurantApi = api.injectEndpoints({
   endpoints: (build) => ({
     getRestaurants: build.query<Restaurant[], void>({
       query: () => ({
-        url: '/restaurant',
+        url: '/restaurants/',
       }),
       providesTags: ['Restaurant'],
     }),

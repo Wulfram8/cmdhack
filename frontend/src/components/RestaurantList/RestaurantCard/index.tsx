@@ -17,7 +17,7 @@ export const RestaurantCard: FC<iRestaurantCardProps> = (props) => {
       <div className={customClasses(styles.RestCard, {}, [className!])}>
         <img width={'100%'} src={restaurant.image} alt='' />
         <h2>{restaurant.name}</h2>
-        <span>{restaurant.category.map((item) => item.name).join(', ')}</span>
+        <span>{restaurant.categories.map((item: any) => item.name).join(', ')}</span>
       </div>
     </Link>
   );

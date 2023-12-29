@@ -11,7 +11,7 @@ interface iRestaurantsListProps {
 
 export const RestaurantsList: FC<iRestaurantsListProps> = (props) => {
   const { className, restaurans } = props;
-
+  console.log(restaurans)
   return (
     <div className={customClasses(styles.RestListContainer, {}, [className!])}>
       <h1>Рестораны</h1>

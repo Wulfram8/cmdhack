@@ -1,16 +1,36 @@
 .RestListContainer {
     margin-top: 30px;
 
-    h1 {
-        text-align: center;
-    }
 }
 
 .RestList {
     display: grid;
-    gap: 20px;
-    grid-template-columns: 330px 330px 330px 330px;
-    grid-template-rows: 385px 385px 385px;
+    justify-content: center;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px 300px 300px 300px;
 
     padding: 30px;
+}
+
+.verticalLine {
+    align-self: stretch;
+    width: 4px;
+    background-color: var(--primary-color);
+}
+
+.titleWrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 36px;
+    padding-left: 100px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--primary-text);
+    text-transform: uppercase;
 }

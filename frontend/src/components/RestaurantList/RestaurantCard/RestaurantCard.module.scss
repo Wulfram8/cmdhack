@@ -1,12 +1,62 @@
 .RestCard {
+    position: relative;
+
+    width: 100%;
+    height: 100%
+;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
     border-radius: 10px;
     overflow: hidden;
     background-color: var(--bg-color-secondary);
 
     transition: all .2s ease-in-out;
-    padding: 10px;
+
+    &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(210deg, #00000010 0%, black 100%);
+    }
+
     &:hover {
         box-shadow: 0 5px 15px 0 rgba(43, 40, 40, 0.60);
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+        filter: grayscale(50%);
+    }
+
+    img {
+        transition: all .3s ease-in-out;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .restaurantInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        position: absolute;
+        top: calc(100% - 80px);
+        left: 20px;
+        z-index: 2;
+
+        color: #fff;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        span {
+            font-size: 16px;
+            padding-left: 10px;
+        }
     }
 }

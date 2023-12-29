@@ -1,5 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout/MainLayout';
+import OrdersPage from './pages/Orders';
 
 function App() {
   const routes = useRoutes([
@@ -13,7 +14,7 @@ function App() {
         },
         {
           path: '/orders',
-          element: <div>orders</div>,
+          element: <OrdersPage />,
         },
       ],
     },

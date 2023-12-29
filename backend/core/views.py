@@ -54,10 +54,10 @@ class ClientViewSet(viewsets.ModelViewSet):
     """
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     class Meta:
-        path = 'Clients'
+        path = 'clients'
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -138,6 +138,9 @@ class OrderViewSet(viewsets.ModelViewSet):
             meal = Meal.objects.get(id=p.get('meal_id'))
             OrderMeal.objects.create(
                 order=order, quantity=p.get('quantity'), meal=meal, notes=p.get('notes'))
+
+        client.reward_points += 10
+        client.save()
 
         return Response(OrderSerializer(order).data)
 

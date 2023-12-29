@@ -1,41 +1,41 @@
-import React, { useState } from "react";
-import customClasses from "../../../lib/customClasses/customClasses.ts";
-import style from "./CartItem.module.scss";
-import { Meal } from "@root/dto.ts";
+import customClasses from '../../../lib/customClasses/customClasses.ts';
+import style from './CartItem.module.scss';
+import { CartProduct, decrement, increment, removeCartProduct } from '@/store/cart/cartSlice.ts';
+import { useAppDispatch } from '@/store';
 
 export type CartItemProps = {
-	meal: Meal;
-	quantity: number;
+  product: CartProduct;
 };
 
-const CartItem = () => {
-	let [itemCount, setItemCount] = useState<any>(1);
+const CartItem = ({ product }: CartItemProps) => {
+  const dispatch = useAppDispatch();
 
-	return (
-		<div className={customClasses(style.cartItem)}>
-			<div className={style.cartLeft}>
-				<img
-					src="https://eda.ru/img/eda/1280x-/s1.eda.ru/StaticContent/Photos/150525210126/150601174518/p_O.jpg"
-					alt=""
-					className="meal-img"
-				/>
-				<div className={style.cartText}>
-					<h2 className="meal-name">Salsa</h2>
-					<p>
-						Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок,
-						базилик, соус песто
-					</p>
-				</div>
-			</div>
-			<div className={customClasses(style.mealCount)}>
-				<button onClick={() => setItemCount(--itemCount)}>-</button>
-				<span className="count-text">{itemCount}</span>
-				<button onClick={() => setItemCount(++itemCount)}>+</button>
-			</div>
-			<p className={style.itemPrice}>1650 rub</p>
-			<button className="meal-delete">x</button>
-		</div>
-	);
+  return (
+    <div className={customClasses(style.cartItem)}>
+      <div className={style.cartLeft}>
+        <img
+          src='https://eda.ru/img/eda/1280x-/s1.eda.ru/StaticContent/Photos/150525210126/150601174518/p_O.jpg'
+          alt=''
+          className='meal-img'
+        />
+        <div className={style.cartText}>
+          <h2 className='meal-name'>{product.meal.name}</h2>
+          <p>
+            Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто
+          </p>
+        </div>
+      </div>
+      <div className={customClasses(style.mealCount)}>
+        <button onClick={() => dispatch(decrement(product.meal.id))}>-</button>
+        <span className='count-text'>{product.quantity}</span>
+        <button onClick={() => dispatch(increment(product.meal.id))}>+</button>
+      </div>
+      <p className={style.itemPrice}>1650 rub</p>
+      <button className='meal-delete' onClick={() => dispatch(removeCartProduct(product.meal.id))}>
+        x
+      </button>
+    </div>
+  );
 };
 
 export default CartItem;

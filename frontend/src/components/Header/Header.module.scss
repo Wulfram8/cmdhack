@@ -1,10 +1,10 @@
 .Header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     color: var(--inverted-secondary-color);
-    background: var(--inverted-bg-color);
+    background: var(--bg-color-secondary);
     height: 98px;
     padding: 0 96px;
     a {
@@ -15,7 +15,7 @@
 .headerLogo {
     color: var(--inverted-primary-color);
     font-family: Roboto, sans-serif;
-    font-size: 25px;
+    font-size: 36px;
     font-style: normal;
     text-transform: uppercase;
     font-weight: 700;
@@ -27,6 +27,15 @@
     padding: 10px;
     background-color: var(--inverted-primary-color);
     border-radius: 50%;
+    color: var(--primary-text);
+}
+
+.title {
+    color: var(--primary-text);
+}
+
+.phoneNumber {
+    color: var(--primary-text);
 }
 
 .contacts {

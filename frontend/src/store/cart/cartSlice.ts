@@ -54,3 +54,7 @@ export const { addCartProduct, increment, decrement, removeCartProduct } = cartS
 
 export const updateTheCart = (state: RootState) => state.cart.isUpdated;
 export const selectCartProducets = (state: RootState) => state.cart.products;
+export const selectCartTotalPrice = (state: RootState) =>
+  state.cart.products.reduce((amount, product) => {
+    return amount + product.meal.price * product.quantity;
+  }, 0);

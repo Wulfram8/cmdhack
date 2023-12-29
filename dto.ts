@@ -1,10 +1,16 @@
+export type User = {
+	id: number;
+	username: string;
+	first_name: string;
+	last_name: string;
+}
+
 export type Client = {
 	id: number;
-	email: string;
-	fullName: string;
+	user: User;
+	restaurant: Restaurant;
 	phone: string;
-	rewardPoints: number;
-	restarauntId?: number;
+	reward_points: number;
 };
 
 export type Order = {

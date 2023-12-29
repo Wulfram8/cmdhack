@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../';
+import { Client } from '@root/dto';
 
 const API_URL = 'http://10.1.1.154:8000';
 
@@ -22,7 +23,10 @@ export const api = createApi({
   baseQuery: baseQueryWithRetry,
   tagTypes: ['Restaurant', 'Order', 'Ingredient', 'Meal'],
   endpoints: (build) => ({
-    login: build.mutation<{ token: string }, { username: string; password: string }>({
+    login: build.mutation<
+      { token: string; client: Client },
+      { username: string; password: string }
+    >({
       query: (body) => ({
         body,
         url: '/auth/',
@@ -30,7 +34,7 @@ export const api = createApi({
       }),
     }),
     register: build.mutation<
-      { token: string },
+      { token: string; client: Client },
       { username: string; password: string; first_name: string; last_name: string }
     >({
       query: (body) => ({

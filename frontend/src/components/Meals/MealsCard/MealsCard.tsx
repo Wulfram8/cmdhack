@@ -2,9 +2,11 @@ import { Ingredient, Meal } from '@root/dto.ts';
 import styles from './MealsCard.module.scss';
 import { BsCart4 } from 'react-icons/bs';
 import Chip from '@mui/material/Chip';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useAppDispatch, useTypedSelector } from '@/store';
-import { addCartProduct } from '@/store/cart/cartSlice.ts';
+import { addCartProduct, decrement, increment } from '@/store/cart/cartSlice.ts';
+import { FaPlus } from 'react-icons/fa';
+import { FaMinus } from 'react-icons/fa';
 
 export type MealsCardProps = {
   meal: Meal;
@@ -16,6 +18,10 @@ const MealsCard = (props: MealsCardProps) => {
   const dispatch = useAppDispatch();
   console.log(cartMeals);
   const [selectIngredients, setSelectIngredients] = useState<Ingredient[]>(meal.ingredients || []);
+
+  const mealExist = useMemo(() => {
+    return cartMeals.find((cartMeal) => cartMeal.meal.id === meal.id);
+  }, [cartMeals, meal.id]);
 
   const addIngredientHandler = (ingredient: Ingredient) => {
     setSelectIngredients((prev) => {
@@ -36,6 +42,14 @@ const MealsCard = (props: MealsCardProps) => {
         quantity: 1,
       }),
     );
+  };
+
+  const handleClickPlus = (mealId: number) => {
+    dispatch(increment(mealId));
+  };
+
+  const handleClickMinus = (mealId: number) => {
+    dispatch(decrement(mealId));
   };
 
   return (
@@ -65,10 +79,31 @@ const MealsCard = (props: MealsCardProps) => {
       </div>
       <div className={styles.mealAddCart}>
         <span>{meal.price}₽</span>
-        <button onClick={handleClickOnMealBtn}>
-          <span>В корзину</span>
-          <BsCart4 className={styles.cartIcon} />
-        </button>
+        {!mealExist && (
+          <button onClick={handleClickOnMealBtn}>
+            <span>В корзину</span>
+            <BsCart4 className={styles.cartIcon} />
+          </button>
+        )}
+        {mealExist && (
+          <div
+            style={{
+              display: 'flex',
+              gap: 10,
+              alignItems: 'center',
+              fontSize: 26,
+              fontWeight: 600,
+            }}
+          >
+            <button onClick={() => handleClickMinus(meal.id)}>
+              <FaMinus className={styles.cartIcon} />
+            </button>
+            <span>{mealExist.quantity}</span>
+            <button onClick={() => handleClickPlus(meal.id)}>
+              <FaPlus className={styles.cartIcon} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

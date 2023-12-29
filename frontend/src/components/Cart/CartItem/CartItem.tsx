@@ -20,9 +20,7 @@ const CartItem = ({ product }: CartItemProps) => {
         />
         <div className={style.cartText}>
           <h2 className='meal-name'>{product.meal.name}</h2>
-          <p>
-            Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто
-          </p>
+          <p>{product.meal.description}</p>
         </div>
       </div>
       <div className={customClasses(style.mealCount)}>
@@ -30,7 +28,7 @@ const CartItem = ({ product }: CartItemProps) => {
         <span className='count-text'>{product.quantity}</span>
         <button onClick={() => dispatch(increment(product.meal.id))}>+</button>
       </div>
-      <p className={style.itemPrice}>1650 rub</p>
+      <p className={style.itemPrice}>{product.meal.price} руб.</p>
       <button className='meal-delete' onClick={() => dispatch(removeCartProduct(product.meal.id))}>
         x
       </button>

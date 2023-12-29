@@ -3,6 +3,7 @@ import customClasses from '../../lib/customClasses/customClasses.ts';
 import style from './Cart.module.scss';
 import CartItem from './CartItem/CartItem.tsx';
 import { CartProduct, selectCartProducets } from '@/store/cart/cartSlice.ts';
+import CartTotal from './CartTotal/CartTotal.tsx';
 
 const Cart = () => {
   let products = useTypedSelector(selectCartProducets);
@@ -14,6 +15,7 @@ const Cart = () => {
           <CartItem product={product} key={product.meal.id} />
         ))}
       </div>
+      <CartTotal products={products} />
     </div>
   );
 };

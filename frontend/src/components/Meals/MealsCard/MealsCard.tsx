@@ -3,6 +3,8 @@ import styles from './MealsCard.module.scss';
 import { BsCart4 } from 'react-icons/bs';
 import Chip from '@mui/material/Chip';
 import { useState } from 'react';
+import { useAppDispatch, useTypedSelector } from '@/store';
+import { addCartProduct } from '@/store/cart/cartSlice.ts';
 
 export type MealsCardProps = {
   meal: Meal;
@@ -10,6 +12,9 @@ export type MealsCardProps = {
 
 const MealsCard = (props: MealsCardProps) => {
   const { meal } = props;
+  const cartMeals = useTypedSelector((state) => state.cart.products);
+  const dispatch = useAppDispatch();
+  console.log(cartMeals);
   const [selectIngredients, setSelectIngredients] = useState<Ingredient[]>(meal.ingredients || []);
 
   const addIngredientHandler = (ingredient: Ingredient) => {
@@ -22,6 +27,15 @@ const MealsCard = (props: MealsCardProps) => {
       }
       return [...prev, ingredient];
     });
+  };
+
+  const handleClickOnMealBtn = () => {
+    dispatch(
+      addCartProduct({
+        meal,
+        quantity: 1,
+      }),
+    );
   };
 
   return (
@@ -51,7 +65,7 @@ const MealsCard = (props: MealsCardProps) => {
       </div>
       <div className={styles.mealAddCart}>
         <span>{meal.price}₽</span>
-        <button>
+        <button onClick={handleClickOnMealBtn}>
           <span>В корзину</span>
           <BsCart4 className={styles.cartIcon} />
         </button>

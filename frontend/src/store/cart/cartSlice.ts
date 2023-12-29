@@ -11,35 +11,12 @@ export type CartState = {
   products: CartProduct[];
 };
 
-const initialState: CartState = {
-  products: [
-    {
-      meal: {
-        id: 1,
-        ingredients: [],
-        name: '123',
-        image: '',
-        description:
-          'Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто',
-        price: 20,
-        category: [],
-      },
-      quantity: 1,
-    },
-    {
-      meal: {
-        id: 2,
-        ingredients: [],
-        name: '123',
-        image: '',
-        description:
-          'Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто',
-        price: 30,
-        category: [],
-      },
-      quantity: 1,
-    },
-  ],
+const LOCAL_STORAGE_CART_KEY: string = 'cart';
+const state = localStorage.getItem(LOCAL_STORAGE_CART_KEY);
+const initialState: CartState = state ? (JSON.parse(state) as CartState) : { products: [] };
+
+const updateStorage = (products: CartState) => {
+  localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(products));
 };
 
 export const cartSlice = createSlice({
@@ -54,6 +31,7 @@ export const cartSlice = createSlice({
       if (meal?.quantity) {
         meal.quantity++;
       }
+      updateStorage(state);
     },
     decrement: (state, action: PayloadAction<number>) => {
       const meal = state.products.find((product) => product.meal.id === action.payload);
@@ -62,10 +40,12 @@ export const cartSlice = createSlice({
         if (meal.quantity === 0) {
           state.products = state.products.filter((product) => product.meal.id !== action.payload);
         }
+        updateStorage(state);
       }
     },
     removeCartProduct: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter((product) => product.meal.id !== action.payload);
+      updateStorage(state);
     },
   },
 });

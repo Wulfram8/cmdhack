@@ -54,3 +54,4 @@ export type Restaurant = {
 	meals: Meal[];
 	address: string;
 };
+

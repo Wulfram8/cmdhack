@@ -19,7 +19,8 @@ const initialState: CartState = {
         ingredients: [],
         name: '123',
         image: '',
-        description: '',
+        description:
+          'Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто',
         price: 20,
         category: [],
       },
@@ -31,7 +32,8 @@ const initialState: CartState = {
         ingredients: [],
         name: '123',
         image: '',
-        description: '',
+        description:
+          'Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто',
         price: 30,
         category: [],
       },
@@ -57,6 +59,9 @@ export const cartSlice = createSlice({
       const meal = state.products.find((product) => product.meal.id === action.payload);
       if (meal?.quantity) {
         meal.quantity--;
+        if (meal.quantity === 0) {
+          state.products = state.products.filter((product) => product.meal.id !== action.payload);
+        }
       }
     },
     removeCartProduct: (state, action: PayloadAction<number>) => {

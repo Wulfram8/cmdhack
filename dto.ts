@@ -41,7 +41,7 @@ export type Restaurant = {
   id: number;
   name: string;
   description: string;
-  category: Category[];
+  categories: Category[];
   image: string;
   ordersCount: number;
   meals: Meal[];

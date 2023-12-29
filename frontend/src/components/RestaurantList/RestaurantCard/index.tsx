@@ -15,9 +15,11 @@ export const RestaurantCard: FC<iRestaurantCardProps> = (props) => {
   return (
     <Link to={`/${AppRoutes.RESTAURANT}/${restaurant.id}`}>
       <div className={customClasses(styles.RestCard, {}, [className!])}>
-        <img width={'100%'} src={restaurant.image} alt='' />
-        <h2>{restaurant.name}</h2>
-        <span>{restaurant.categories.map((item: any) => item.name).join(', ')}</span>
+        <img src={restaurant.image} alt='' />
+        <div className={styles.restaurantInfo}>
+          <h2>{restaurant.name}</h2>
+          <span>{restaurant.categories.map((item: any) => item.name).join(', ')}</span>
+        </div>
       </div>
     </Link>
   );

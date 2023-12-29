@@ -9,7 +9,10 @@ const MealsList = (props: MealsListProps) => {
   const { meals } = props;
   return (
     <div className={styles.mealsList}>
-      <h1>Блюда</h1>
+      <div className={styles.titleWrapper}>
+        <div className={styles.verticalLine} />
+        <h1 className={styles.title}>Блюда</h1>
+      </div>
       <div className={styles.listContainer}>
         {meals?.map((meal) => <MealsCard key={meal.id} meal={meal} />)}
       </div>

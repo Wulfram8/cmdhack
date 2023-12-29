@@ -5,6 +5,7 @@ import { AuthLayout } from '@/layouts/AuthLayout/AuthLayout.tsx';
 import { LoginPage } from '@/pages/LoginPage/LoginPage.tsx';
 import { useTypedSelector } from '@/store/index.ts';
 import { selectIsAuthenticated } from '@/store/auth/authSlice.ts';
+import { RegisterPage } from '@/pages/RegisterPage/RegisterPage.tsx';
 
 const AppRouter = () => {
   const isAuthenticated = useTypedSelector(selectIsAuthenticated);
@@ -14,6 +15,7 @@ const AppRouter = () => {
       {!isAuthenticated && (
         <Route path='/auth' element={<AuthLayout />}>
           <Route path='/auth/login' element={<LoginPage />} />
+          <Route path='/auth/register' element={<RegisterPage />} />
         </Route>
       )}
       <Route path='/' element={<MainLayout />}>

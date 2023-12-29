@@ -19,7 +19,7 @@ const MealsCard = (props: MealsCardProps) => {
         <p>{meal.description}</p>
       </div>
       <div className={styles.mealAddCart}>
-        <span>620rub</span>
+        <span>{meal.price} руб</span>
         <button>
           <span>В корзину</span>
           <BsCart4 className={styles.cartIcon} />

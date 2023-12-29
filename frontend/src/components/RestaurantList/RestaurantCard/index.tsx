@@ -8,12 +8,13 @@ import { AppRoutes } from '@/router/routerConfig.tsx';
 interface iRestaurantCardProps {
   className?: string;
   restaurant: Restaurant;
+  id: number;
 }
 
 export const RestaurantCard: FC<iRestaurantCardProps> = (props) => {
-  const { className, restaurant } = props;
+  const { className, restaurant, id } = props;
   return (
-    <Link to={`/${AppRoutes.RESTAURANT}/${restaurant.id}`}>
+    <Link to={`/${AppRoutes.RESTAURANT}/${id + 2}`}>
       <div className={customClasses(styles.RestCard, {}, [className!])}>
         <img width={'100%'} src={restaurant.image} alt='' />
         <h2>{restaurant.name}</h2>

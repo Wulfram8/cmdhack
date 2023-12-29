@@ -11,12 +11,13 @@ interface iRestaurantsListProps {
 
 export const RestaurantsList: FC<iRestaurantsListProps> = (props) => {
   const { className, restaurans } = props;
+  console.log(restaurans)
   return (
     <div className={customClasses(styles.RestListContainer, {}, [className!])}>
       <h1>Рестораны</h1>
       <div className={customClasses(styles.RestList, {}, [className!])}>
-        {restaurans.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+        {restaurans.map((restaurant, id) => (
+          <RestaurantCard key={id} restaurant={restaurant} id={id} />
         ))}
       </div>
     </div>

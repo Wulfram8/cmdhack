@@ -7,7 +7,7 @@ meals = [
         "price": 350,
         "categories": ["Паста", "Итальянская кухня"],
         "ingredients": ["Молотый говяжий фарш", "Лук", "Чеснок", "Томатный соус", "Томаты", "Итальянские специи", "Спагетти"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg"
+        "image": "https://kremlin-product.ru/upload/medialibrary/241/jfw6bequvf8s8mcum1npqc0jx1v1ngad/grilled_vegetables.jpg"
     },
     {
         "name": "Цезарь с курицей",
@@ -15,7 +15,7 @@ meals = [
         "price": 280,
         "categories": ["Салаты", "Американская кухня"],
         "ingredients": ["Жареная куринная грудка", "Салат романо", "Крутоны", "Пармезан", "Соус Цезарь", "Лимонный сок", "Оливковое масло"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://s.restorating.ru/w/1920x1080/articles/2920/None-111028.jpeg",
     },
     {
         "name": "Овощной вок",
@@ -23,7 +23,7 @@ meals = [
         "price": 300,
         "categories": ["Овощи", "Азиатская кухня"],
         "ingredients": ["Тофу", "Брокколи", "Болгарский перец", "Морковь", "Снеговые горошинки", "Соевый соус", "Имбирь", "Чеснок", "Соевое масло"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://gotovim-doma.ru/images/recipe/e/ce/eceb453fefbab09075a8c779712e52f8.jpg",
     },
     {
         "name": "Такос с говядиной",
@@ -31,7 +31,7 @@ meals = [
         "price": 320,
         "categories": ["Мексиканская кухня"],
         "ingredients": ["Молотая говядина", "Приправа для тако", "Тортильи", "Салат", "Помидоры", "Сыр", "Сальса", "Сметана"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNVW3bTlMbUA_8-fbvHUgW1KaIEKaLANG0dg&usqp=CAU",
     },
     {
         "name": "Грибной ризотто",
@@ -39,7 +39,7 @@ meals = [
         "price": 380,
         "categories": ["Ризотто", "Итальянская кухня"],
         "ingredients": ["Рис арборио", "Грибы", "Лук", "Белое вино", "Куриный бульон", "Пармезан", "Масло"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsyitq8OdeFsdjKzPHO_ntFd0k9HnlM1NvA&usqp=CAU",
     },
     {
         "name": "Лосось с лимонно-укропным соусом",
@@ -47,7 +47,7 @@ meals = [
         "price": 420,
         "categories": ["Рыба", "Скандинавская кухня"],
         "ingredients": ["Филе лосося", "Лимон", "Свежий укроп", "Оливковое масло", "Чеснок", "Соль и перец"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://kandbi.com/image/catalog/blog/firmennoe-blyudo-v-restorane-chto-eto-i-kakim-ono-byvaet-2.jpg",
     },
     {
         "name": "Капрезе Панини",
@@ -55,7 +55,7 @@ meals = [
         "price": 250,
         "categories": ["Панини", "Итальянская кухня"],
         "ingredients": ["Хлеб чиабатта", "Моцарелла", "Помидоры", "Свежие листья базилика", "Бальзамический глазурь", "Оливковое масло"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://cdn.lifehacker.ru/wp-content/uploads/2020/04/5e95669b997f5_j3hekga7e3r41__700_1587380182-e1587380213139.jpg",
     },
     {
         "name": "Овощное Карри",
@@ -63,7 +63,7 @@ meals = [
         "price": 290,
         "categories": ["Карри", "Азиатская кухня"],
         "ingredients": ["Смешанные овощи", "Карри-паста", "Кокосовое молоко", "Лук", "Чеснок", "Имбирь", "Рис басмати"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://e0.edimdoma.ru/data/posts/0002/1936/21936-ed4_wide.jpg?1679398231",
     },
     {
         "name": "Куриное Альфредо Паста",
@@ -71,7 +71,7 @@ meals = [
         "price": 360,
         "categories": ["Паста", "Итальянская кухня"],
         "ingredients": ["Лапша феттучини", "Куриная грудка", "Тяжелая сливка", "Пармезан", "Масло", "Чеснок", "Соль и перец"],
-        "image": "https://takethemameal.com/files_images_v2/stam.jpg",
+        "image": "https://hip2go.ru/api2/images/IikoProducts26/c1c668e7c6-1_500x353.jpg",
     },
     {
         "name": "Салат с киноа, авокадо и чёрными бобами",

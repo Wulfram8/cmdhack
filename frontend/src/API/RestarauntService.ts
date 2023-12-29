@@ -15,4 +15,8 @@ export default class RestarauntService {
   static async getAll() {
     return response(mockRestaurants);
   }
+
+  static async getOneByID(id: number) {
+    return response(mockRestaurants.find((item) => item.id === id));
+  }
 }

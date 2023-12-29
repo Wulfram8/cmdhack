@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from '../routerConfig.tsx';
-import MainLayout from '../../layouts/MainLayout/MainLayout.tsx';
+import MainLayout from '../../layouts/MainLayout/MainLayout.tsx'
 import { Suspense } from 'react';
 
 const AppRouter = () => {

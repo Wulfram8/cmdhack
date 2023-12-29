@@ -1,6 +1,5 @@
 import { Category, Client, Ingredient, Meal, Order, Restaurant } from '@root/dto';
-const restaurantImg =
-  'https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg';
+const restaurantImg = 'https://klike.net/uploads/posts/2022-12/1672376362_2.jpg';
 // Mock data for Ingredient
 // Mock data for Ingredient
 export const mockIngredients: Ingredient[] = [

@@ -18,6 +18,7 @@ const MealsCard = (props: MealsCardProps) => {
   const dispatch = useAppDispatch();
   console.log(cartMeals);
   const [selectIngredients, setSelectIngredients] = useState<Ingredient[]>(meal.ingredients || []);
+  console.log(selectIngredients);
 
   const mealExist = useMemo(() => {
     return cartMeals.find((cartMeal) => cartMeal.meal.id === meal.id);

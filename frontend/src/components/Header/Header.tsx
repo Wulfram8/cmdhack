@@ -17,6 +17,8 @@ export const Header: FC<iHeaderProps> = (props) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const isAuthenticated = useTypedSelector(selectIsAuthenticated);
+  const mealCartCount = useTypedSelector((state) => state.cart.products);
+  const totalCountInCart: number = mealCartCount.reduce((acc, curr) => acc + curr.quantity, 0);
   const { toggleTheme } = useTheme();
 
   return (
@@ -35,7 +37,7 @@ export const Header: FC<iHeaderProps> = (props) => {
 
       <div className={styles.headerBtnCont}>
         <Link to='/cart'>
-          Корзина | <span>4</span>
+          Корзина | <span>{totalCountInCart}</span>
         </Link>
         {!isAuthenticated ? (
           <Link to='/auth/login'>Войти</Link>

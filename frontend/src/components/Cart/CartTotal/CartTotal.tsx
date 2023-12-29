@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import style from './CartTotal.module.scss';
-import customClasses from '../../../lib/customClasses/customClasses.ts';
 import { CartProduct, CartState } from '@/store/cart/cartSlice.ts';
 import { FC } from 'react';
 

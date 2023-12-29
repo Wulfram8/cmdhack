@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-import RestarauntService from '../../API/RestarauntService.ts';
 import { RestaurantsList } from '../../components/RestaurantList';
-import { Restaurant } from '../../../../dto.ts';
 import { useGetRestaurantsQuery } from '@/store/services/restaurantApi.ts';
 
 export interface restaurant {

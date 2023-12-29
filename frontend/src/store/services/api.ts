@@ -29,7 +29,17 @@ export const api = createApi({
         method: 'POST',
       }),
     }),
+    register: build.mutation<
+      { token: string },
+      { username: string; password: string; first_name: string; last_name: string }
+    >({
+      query: (body) => ({
+        body,
+        url: '/register/',
+        method: 'POST',
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = api;
+export const { useLoginMutation, useRegisterMutation } = api;

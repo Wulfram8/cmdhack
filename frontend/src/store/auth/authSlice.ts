@@ -31,6 +31,11 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
       localStorage.setItem(TOKEN_KEY, action.payload.token);
     });
+    builder.addMatcher(api.endpoints.register.matchFulfilled, (state, action) => {
+      state.token = action.payload.token;
+      state.isAuthenticated = true;
+      localStorage.setItem(TOKEN_KEY, action.payload.token);
+    });
   },
 });
 

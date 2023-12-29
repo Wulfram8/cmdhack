@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-text);
+}
+
+.button {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.buttonActive {
+  background-color: var(--primary-color);
+}

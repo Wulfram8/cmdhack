@@ -36,7 +36,9 @@
 
 .formWrapper {
   margin-top: 54px;
-  color: var(--primary-text)
+  color: var(--primary-text);
+  display: grid;
+  gap: 22px;
 }
 
 .formSectionTitle {
@@ -44,4 +46,11 @@
   font-weight: 700;
   line-height: 22px;
 }
+
+.formSectionTitle2 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
 

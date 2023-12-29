@@ -16,8 +16,8 @@ export const RestaurantsList: FC<iRestaurantsListProps> = (props) => {
     <div className={customClasses(styles.RestListContainer, {}, [className!])}>
       <h1>Рестораны</h1>
       <div className={customClasses(styles.RestList, {}, [className!])}>
-        {restaurans.map((restaurant, id) => (
-          <RestaurantCard key={id} restaurant={restaurant} id={id} />
+        {restaurans.map((restaurant) => (
+          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
         ))}
       </div>
     </div>

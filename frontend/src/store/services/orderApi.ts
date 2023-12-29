@@ -30,7 +30,7 @@ export const orderApi = api.injectEndpoints({
     }),
     createOrder: build.mutation<unknown, CreateOrderBody>({
       query: (body) => ({
-        url: '/orders',
+        url: '/orders/',
         method: 'POST',
         body,
       }),

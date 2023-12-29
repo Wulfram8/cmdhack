@@ -68,6 +68,18 @@ export const MakeOrderPage = () => {
       await createOrder({
         client_id: client!.id,
         address: `${form.values.street}, д. ${form.values.homeNumber}, ${form.values.flatNumber}, ${form.values.pod}. ${form.values.floor}`,
+        delivery_time: form.values.deliveryTime,
+        is_delivery: form.values.delivery.id === 1,
+        is_present: form.values.user.id !== 1,
+        payment_method: form.values.payment.label,
+        payment_status: form.values.payment.id === 1 ? 'Оплачено' : 'Ожидание',
+        products: cartProducts.map((p) => ({
+          meal_id: p.meal.id,
+          quantity: p.quantity,
+          notes: [],
+        })),
+        note: '',
+        to_whom_id: 2,
       }).unwrap();
     } catch (error) {
       console.error(error);
@@ -291,7 +303,9 @@ export const MakeOrderPage = () => {
             </p>
           </div>
         </Paper>
-        <Button>Оформить заказ</Button>
+        <Button onClick={submitHanlder} disabled={createOrderExtra.isLoading}>
+          Оформить заказ
+        </Button>
       </div>
     </div>
   );

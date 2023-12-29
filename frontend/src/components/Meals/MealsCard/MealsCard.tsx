@@ -12,7 +12,7 @@ const MealsCard = (props: MealsCardProps) => {
   return (
     <div className={styles.mealsCard}>
       <div className={styles.imgContainer}>
-        <img width={'100$'} src={meal.image} alt='' />
+        <img width={'100%'} src={meal.image} alt='' />
       </div>
       <div className={styles.mealsCardInfo}>
         <h2>{meal.name}</h2>

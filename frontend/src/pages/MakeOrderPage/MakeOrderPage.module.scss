@@ -1,0 +1,36 @@
+.root {
+  width: 100%;
+  max-width: 800px;
+  margin: 36px auto 0 auto;
+}
+
+.backButton {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verticalLine {
+  align-self: stretch;
+  width: 4px;
+  background-color: var(--primary-color);
+}
+
+.titleWrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #fff;
+  text-transform: uppercase;
+}
+

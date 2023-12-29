@@ -1,0 +1,42 @@
+.sectionRestaurant {
+  position: relative;
+
+  width: 100vw;
+  height: 600px;
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #00000010 0%, black 100%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .restaurantInfo {
+    position: absolute;
+    top: 400px;
+    left: 100px;
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 24px;
+      padding-left: 24px;
+    }
+  }
+}

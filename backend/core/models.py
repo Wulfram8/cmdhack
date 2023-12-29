@@ -156,11 +156,7 @@ class Order(models.Model):
         auto_now=True, verbose_name='updated_at')
 
     def __str__(self):
-        return f"#{self.id}: {self.name}"
-
-    class Meta:
-        verbose_name = "Ресторан"
-        verbose_name_plural = "Рестораны"
+        return f"#{self.id}: {self.client.get_full_name()} {self.address}"
 
 
 class OrderMeal(models.Model):
@@ -173,8 +169,4 @@ class OrderMeal(models.Model):
         max_length=1024), blank=True, default=[])
 
     def __str__(self):
-        return f"#{self.id}: {self.name}"
-
-    class Meta:
-        verbose_name = "Ресторан"
-        verbose_name_plural = "Рестораны"
+        return f"#{self.id}: {self.meal.name}"

@@ -41,15 +41,28 @@
 .headerBtnCont {
     display: flex;
     gap: 20px;
+
     a {
         text-decoration: none;
-        background-color: var(--primary-color);
+        background-color: var(--inverted-primary-color);
         color: var(--secondary-color);
         padding: 10px 20px;
         border-radius: 6px;
         &:hover,
         &:active {
-            background-color: var(--inverted-primary-color);
+            background-color: var(--primary-color);
+        }
+
+        &:first-child {
+            span {
+                display: inline-block;
+                text-align: center;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: var(--inverted-bg-color);
+                color: var(--bg-color);
+            }
         }
     }
 }

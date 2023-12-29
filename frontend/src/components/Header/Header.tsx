@@ -1,6 +1,5 @@
 import styles from './Header.module.scss';
 import { FC } from 'react';
-import { Button } from '../UI/TabMenu/button/Button.tsx';
 import Input from '../UI/input/Input.tsx';
 import CallingIcon from '../../assets/icons/calling-icon.svg';
 import customClasses from '../../lib/customClasses/customClasses.ts';
@@ -15,7 +14,9 @@ export const Header: FC<iHeaderProps> = (props) => {
 
   return (
     <header className={customClasses(styles.Header, {}, [className!])}>
-      <Link to='' className={styles.headerLogo}>Logos</Link>
+      <Link to='' className={styles.headerLogo}>
+        Logos
+      </Link>
       <Input className={'input'} placeholder={'Введите адрес доставки'} />
       <div className={styles.contacts}>
         <img className={styles.contactsIcon} src={CallingIcon} alt='' />
@@ -25,7 +26,9 @@ export const Header: FC<iHeaderProps> = (props) => {
         </div>
       </div>
       <div className={styles.headerBtnCont}>
-        <Link to='/cart'>Cart</Link>
+        <Link to='/cart'>
+          Cart | <span>4</span>
+        </Link>
         <Link to='/login'>Login</Link>
       </div>
     </header>

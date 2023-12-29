@@ -1,15 +1,19 @@
 .root {
   display: flex;
+  align-items: stretch;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--primary-color);
   background-color: transparent;
   color: var(--primary-text);
+  height: 60px;
 }
 
 .button {
   flex: 1;
-  padding: 20px 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonActive {

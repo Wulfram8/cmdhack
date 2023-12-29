@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import s from './GroupButtons.module.scss';
 import cn from 'classnames';
 
 export type GroupButtonsProps<Options extends unknown[]> = {
   options: Options;
   onChange: (value: Options[number]) => void;
-  selectLabel: (option: Options[number]) => string | number;
+  selectLabel: (option: Options[number]) => ReactNode;
   selectOptionCompare: (option: Options[number]) => unknown;
   selectKey: (option: Options[number]) => React.Key;
   value: Options[number];

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Paper } from '@/components/UI/Paper/Paper';
 import s from './MakeOrderPage.module.scss';
@@ -15,6 +16,8 @@ import { Button } from '@/components/UI/TabMenu/button/Button';
 import { selectClient } from '@/store/auth/authSlice';
 import { useEffect } from 'react';
 import { useCreateOrderMutation } from '@/store/services/orderApi';
+import { SelectClient } from '@/components/SelectClient/SelectClient';
+import { Client } from '@root/dto';
 
 export const MakeOrderPage = () => {
   const navigate = useNavigate();
@@ -47,6 +50,7 @@ export const MakeOrderPage = () => {
     flatNumber: '',
     pod: '',
     floor: '',
+    to_whom_id: null,
   });
   const cartProducts = useTypedSelector(selectCartProducets);
   const cartTotalPrice = useTypedSelector(selectCartTotalPrice);
@@ -79,7 +83,7 @@ export const MakeOrderPage = () => {
           notes: [],
         })),
         note: '',
-        to_whom_id: 2,
+        to_whom_id: (form.values.to_whom_id as unknown as Client)?.id,
       }).unwrap();
     } catch (error) {
       console.error(error);
@@ -121,12 +125,21 @@ export const MakeOrderPage = () => {
             />
           </div>
           <div className='grid sm:grid-cols-2 gap-4 mt-8'>
-            <InputField
-              name='name'
-              placeholder='Имя*'
-              value={form.values.name}
-              onChange={form.handleChange}
-            />
+            {form.values.user.id === 1 && (
+              <InputField
+                name='name'
+                placeholder='Имя*'
+                value={form.values.name}
+                onChange={form.handleChange}
+              />
+            )}
+            {form.values.user.id === 2 && (
+              <SelectClient
+                //@ts-expect-error
+                onChange={(value) => form.setFieldValue('to_whom_id', value)}
+                value={form.values.to_whom_id}
+              />
+            )}
             <InputField
               name='phone'
               placeholder='Телефон*'

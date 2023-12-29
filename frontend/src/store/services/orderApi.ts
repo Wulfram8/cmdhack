@@ -3,7 +3,7 @@ import { api } from './api';
 
 export type CreateOrderBody = {
   client_id: number;
-  to_whom_id: number;
+  to_whom_id?: number;
   is_delivery: boolean;
   is_present: boolean;
   address: string;

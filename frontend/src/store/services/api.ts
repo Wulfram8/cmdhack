@@ -21,7 +21,7 @@ const baseQueryWithRetry = baseQuery;
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithRetry,
-  tagTypes: ['Restaurant', 'Order', 'Ingredient', 'Meal', 'Category'],
+  tagTypes: ['Restaurant', 'Order', 'Ingredient', 'Meal', 'Category', 'Client'],
   endpoints: (build) => ({
     login: build.mutation<
       { token: string; client: Client },

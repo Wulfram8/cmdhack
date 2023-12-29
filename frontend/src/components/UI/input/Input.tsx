@@ -1,6 +1,7 @@
 import { FC, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react';
 import styles from './Input.module.scss';
 import LocationIcon from '../../../assets/icons/location-icon.svg';
+import SearchIcon from '../../../assets/icons8-поиск-60 (1).png';
 
 interface iInputProps extends InputHTMLAttributes<HTMLInputTypeAttribute> {
   placeholder?: string;
@@ -14,7 +15,7 @@ const Input: FC<iInputProps> = (props) => {
     <div className={styles.inputContainer}>
       <img src={LocationIcon} alt='search-icon' />
       <input className={styles[className!]} type='text' placeholder={placeholder} />
-      <img src={'#'} alt='search-icon' />
+      <img src={SearchIcon} alt='search-icon' />
     </div>
   );
 };
